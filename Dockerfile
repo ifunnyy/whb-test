@@ -42,6 +42,10 @@ RUN cp /app/conf/nginx.conf /etc/nginx/conf.d/default.conf \
 # 暴露端口
 EXPOSE 80
 
+RUN composer install --ignore-platform-reqs
+
+RUN cp -a .env.example .env
+
 # 容器启动执行脚本
 CMD ["sh", "run.sh"]
 
